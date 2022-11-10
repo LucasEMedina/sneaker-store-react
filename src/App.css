@@ -1,4 +1,100 @@
-.App {
+/*---- Reset ----*/
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.container-fluid{
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul{
+  padding: 0;
+}
+
+li {
+	list-style-type: none;
+	text-align: center;
+}
+
+/*---- Header ----*/
+
+
+/*---- NavBar ----*/
+
+
+
+/*---- CartWidget ----*/
+
+.cartWidget{
+  width: 30px;
+  display: flex;
+  flex-direction: row;
+  margin-right: 30px;
+}
+
+.btnCart{
+  border: none;
+}
+
+.iconCart{
+  color: rgb(13, 97, 136);
+}
+
+.spanCart{
+  color: rgb(13, 97, 136);
+  font-weight: 600;
+}
+
+/*---- Body ----*/
+
+
+/*---- Footer ----*/
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;  
+  margin-top: 35%;
+  background-color: rgb(219, 218, 214);
+  align-items: flex-start;
+}
+
+.footerDiv{
+  width: 20%;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.footCategorias{
+  font-size: 1rem;
+  text-align: center;
+}
+
+.footCategoriasUl{
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.footCategoriasUl a {
+	text-decoration: none;
+}
+
+
+
+
+
+
+/*---- App original----*/
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +131,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
