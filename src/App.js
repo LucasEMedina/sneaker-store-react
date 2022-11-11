@@ -14,7 +14,7 @@ function App() {
       <main>
         <Header />
         <NavBar />
-        <ItemListContainer greeting={"Best shoes in the world"}/>
+        <ItemListContainer/>
         <Body />
         <Footer />
       </main>

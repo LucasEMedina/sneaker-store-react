@@ -52,6 +52,42 @@ li {
   font-weight: 600;
 }
 
+/*---- ItemListContainer ----*/
+.containProducts{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardProducto{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 5px;  
+  width: 300px;
+  height: 450px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imgProduct{
+  width: 250px;
+}
+
+.btnParesAgregados{
+  display: flex;
+  flex-direction: row;
+}
+
+.btnCantidadPar{
+  margin: 0 10px;
+  width: 30px;
+  border: 1px solid rgb(9, 64, 128);
+  border-radius: 100%;
+  color: rgb(9, 64, 128);
+  background: rgb(214, 8, 233);
+}
+
 /*---- Body ----*/
 
 
@@ -60,8 +96,7 @@ li {
 .footer{
   display: flex;
   flex-direction: column;
-  width: 100%;  
-  margin-top: 35%;
+  width: 100%;
   background-color: rgb(219, 218, 214);
   align-items: flex-start;
 }
