@@ -52,8 +52,9 @@ li {
   font-weight: 600;
 }
 
-/*---- ItemListContainer ----*/
+/*---- ItemDetail ----*/
 .containProducts{
+  margin: 30px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,34 +62,98 @@ li {
 
 .cardProducto{
   display: flex;
-  flex-direction: column;
-  border: 1px solid black;
+  flex-direction: row;
+  padding: 20px;
+  box-shadow: 1px 1px 5px rgb(218, 218, 218);
   border-radius: 5px;  
-  width: 300px;
+  max-width: 70%;
   height: 450px;
   justify-content: space-between;
   align-items: center;
 }
 
 .imgProduct{
-  width: 250px;
+  width: 400px;
+  margin-right: 10px;
+}
+
+.detailProduct{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: justify;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(206, 205, 205);
 }
 
 .btnParesAgregados{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center; 
 }
 
 .btnCantidadPar{
   margin: 0 10px;
   width: 30px;
+  height: 30px;
   border: 1px solid rgb(9, 64, 128);
-  border-radius: 100%;
-  color: rgb(9, 64, 128);
-  background: rgb(214, 8, 233);
+  border-radius: 50%;
+  color: rgb(242, 244, 247);
+  background: rgb(49, 101, 180);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+.btnCantidadPar:hover{
+  background: rgb(12, 79, 179);
 }
 
-/*---- Body ----*/
+.spanPares{
+  font-size: 1.5rem;
+}
+
+.btnAgregarCarrito{
+  margin-top: 15px;
+  margin-bottom: 10px;
+  
+}
+
+/*---- ItemList ----*/
+.itemListUl{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px 0;
+}
+
+/*---- Item Card ----*/
+.divContainerCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 250px;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgb(168, 168, 168);
+  background-color: rgb(243, 243, 243);
+}
+
+.nameProduct{
+  margin-top: 10px;
+}
+
+.imageProduct{  
+  border-radius: 10px;
+  width: 250px;
+}
 
 
 /*---- Footer ----*/

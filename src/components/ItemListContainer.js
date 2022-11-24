@@ -1,37 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
+// Own components
+import ItemList from "./ItemList";
 
-const producto1 = {
-    nombre : "Nike Air Max 90",
-    stock : 10,
-    talle : 41,
-    categoria : "Street",
-    img : "https://woker.vtexassets.com/arquivos/ids/307957/4DH5075-100-1.jpg?v=637992964287230000",
-    id : 1
-}
+// Mock
+import {items} from "../mocks/items.mock";
 
-
+// Librerias
+import Toastify from 'toastify-js';
 
 
 
 const ItemListContainer =() => {
-    return (
-        <div className="containProducts">
-            <div className="cardProducto">
-                <img src={producto1.img} className="imgProduct"/>
-                <h5 className="nameProduct">{producto1.nombre}</h5>
-                <p className="parrafoProduct">Stock = {producto1.stock}</p>
-                <h6 className="titlePares">Pares a comprar</h6>
-                <div className="btnParesAgregados">
-                    <button className="btnCantidadPar">-</button>
-                    <span className="spanPares">1</span>
-                    <button className="btnCantidadPar">+</button>
-                </div>
-                <button className="btnAgregarCarrito">AGREGAR AL CARRITO</button>
-            </div>
-        </div>
-    );
+    const { category } = useParams();
+    const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    new Promise((resolve) => {
+      
+      setProducts([]);
+
+      return setTimeout(() => {
+        resolve(items);
+      }, 1000);
+    }).then((data) => {
+      if (category) {
+        const categories = data.filter(
+          (product) => product.category === category
+        );
+        setProducts(categories);
+      } else {
+        setProducts(data);
+      }
+    });
+  }, [category]);
+
+  if (products.length === 0) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <div className="h-full">
+      <ItemList products={products} />
+    </div>
+  );
 };
 
 export default ItemListContainer;

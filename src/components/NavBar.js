@@ -1,30 +1,32 @@
 import React from "react";
-import CartWidget from './CartWidget'
+
+import CartWidget from "./CartWidget";
+import {Link} from "react-router-dom";
 
 const NavBar = () => {
     return (
         <div className="navDiv">
-            <nav class="navbar navbar-expand-lg bg-light">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <nav className="navbar navbar-expand-lg bg-light">
+                <div className="container-fluid">
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul className="navbar-nav">
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Abaut Us</a>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/">Abaut Us</Link>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Contact</a>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/">Contact</Link>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link dropdown-toggle" to="/category/123" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categorias
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/">Sports</a></li>
-                                    <li><a class="dropdown-item" href="/">Runers</a></li>
-                                    <li><a class="dropdown-item" href="/">Street</a></li>
+                                </Link>
+                                <ul className="dropdown-menu">
+                                    <li><Link className="dropdown-item" to="/category/Jordan">Jordan</Link></li>
+                                    <li><Link className="dropdown-item" to="/category/Runners">Runners</Link></li>
+                                    <li><Link className="dropdown-item" to="/category/Street">Street</Link></li>
                                 </ul>
                             </li>
                         </ul>
