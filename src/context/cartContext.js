@@ -1,30 +1,47 @@
 import React, { useState, createContext } from "react";
+import Toastify from 'toastify-js';
 
-export const Context = createContext();
+export const CartContext = createContext([]);
 
-export const CartContextProvider = ({children}) => {
+export const CartContextProvider = ({ children }) => {
     const [carrito, setCarrito] = useState([]);
+    console.log(carrito)
 
-    function addItem(item) {
-        setCarrito(carrito.push(item))
+    function addItem(item, cantidad) {
+        if (isInCart(item.id)) {
+            setCarrito(carrito.map(product => {
+                return product.id === item.id ?
+                    { ...product, cantidad: product.cantidad + cantidad } : product
+            }));
+        } else {
+
+            setCarrito((prevState) => prevState.concat({ ...item, cantidad }));
+        }
+
     }
 
-    function removeItem(itemId) {
-        setCarrito(carrito.filter((item) => item.id !== itemId));
-    }
-
-    function clear () {
-        setCarrito([]);
+    const totalPrice = () => {
+        return carrito.reduce((prev, act) => prev + act.cantidad * act.price, 0);
     }
 
     function isInCart(itemId) {
-        return Boolean(carrito.find((item) => item.id === itemId));
+        return carrito.some((product) => product.id === itemId);
     }
 
+    const removeItem = (itemId) => setCarrito(carrito.filter(product => product.id !== itemId))
+    
+    function clear() {
+        setCarrito([]);
+    }
+
+
     return (
-        <Context.Provider value = {{addItem, removeItem, clear, isInCart}}>
+        <CartContext.Provider
+            value={{ addItem, removeItem, clear, isInCart, totalPrice, carrito }}>
+
             {children}
-        </Context.Provider>
+
+        </CartContext.Provider>
     );
 };
 

@@ -1,8 +1,10 @@
 import React from "react";
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import ItemDetail from "./ItemDetail";
+import { Loading } from "./Loader";
 
 import { items } from "../mocks/items.mock";
 
@@ -17,10 +19,14 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   if (!item) {
-    return <p>Loading...</p>;
+    return <Loading/>;
   }
 
-  return <ItemDetail item={item} />;
+  return (
+    
+    <ItemDetail item={item} />
+    
+  );
 };
 
 export default ItemDetailContainer;

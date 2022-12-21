@@ -7,11 +7,11 @@ import { CartDetail } from "../components/CartDetail";
 
 
 const CartView = () => {
-    
-    return (
+  
+    return (        
         <Layout>
             <CartDetail/>
-        </Layout>
+        </Layout>        
     );
 };
 

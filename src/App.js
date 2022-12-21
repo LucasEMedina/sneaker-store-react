@@ -1,5 +1,4 @@
 import React from 'react';
-import { CartContextProvider } from "./context/cartContext";
 import {Layout} from "./components/Layout";
 import './App.css';
 import ItemListContainer from './components/ItemListContainer';
@@ -7,12 +6,10 @@ import ItemListContainer from './components/ItemListContainer';
 
 function App() {
 
-  return (
-    <CartContextProvider>
+  return (    
       <Layout>
         <ItemListContainer/>
-      </Layout>
-    </CartContextProvider>
+      </Layout>    
   );
 }
 

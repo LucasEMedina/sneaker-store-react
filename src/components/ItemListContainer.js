@@ -3,22 +3,20 @@ import { useParams } from "react-router-dom";
 
 // Own components
 import ItemList from "./ItemList";
+import { Loading } from "./Loader";
 
 // Mock
-import {items} from "../mocks/items.mock";
-
-// Librerias
-import Toastify from 'toastify-js';
+import { items } from "../mocks/items.mock";
 
 
 
-const ItemListContainer =() => {
-    const { category } = useParams();
-    const [products, setProducts] = useState([]);
+const ItemListContainer = () => {
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     new Promise((resolve) => {
-      
+
       setProducts([]);
 
       return setTimeout(() => {
@@ -37,7 +35,7 @@ const ItemListContainer =() => {
   }, [category]);
 
   if (products.length === 0) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (
