@@ -19,12 +19,12 @@ import "toastify-js/src/toastify.css";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCZakFPT1IbRi1nlwJh_bwlPdj9LKF7s8I",
-  authDomain: "sneaker-store-5d2f5.firebaseapp.com",
-  projectId: "sneaker-store-5d2f5",
-  storageBucket: "sneaker-store-5d2f5.appspot.com",
-  messagingSenderId: "513929947634",
-  appId: "1:513929947634:web:b4b4e0e166906bc07e236b"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROYECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
 
 initializeApp(firebaseConfig);
