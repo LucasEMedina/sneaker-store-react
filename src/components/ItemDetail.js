@@ -70,11 +70,11 @@ const ItemDetail = ({ item }) => {
                         <img id="imgFullBox" src={img} className="imgBig" alt={item.name}/>
                     </div>
                     <div className="containImgSmall">
-                        <img src={item.img} className="imgSmall" onClick={() => selectImg(item.img)}/>
-                        <img src={item.img2} className="imgSmall" onClick={() => selectImg(item.img2)}/>
-                        <img src={item.img3} className="imgSmall" onClick={() => selectImg(item.img3)}/>
-                        <img src={item.img4} className="imgSmall" onClick={() => selectImg(item.img4)}/>
-                        <img src={item.img5} className="imgSmall" onClick={() => selectImg(item.img5)}/>
+                        <img src={item.img} className="imgSmall" onClick={() => selectImg(item.img)} alt={item.name}/>
+                        <img src={item.img2} className="imgSmall" onClick={() => selectImg(item.img2)} alt={item.name}/>
+                        <img src={item.img3} className="imgSmall" onClick={() => selectImg(item.img3)} alt={item.name}/>
+                        <img src={item.img4} className="imgSmall" onClick={() => selectImg(item.img4)} alt={item.name}/>
+                        <img src={item.img5} className="imgSmall" onClick={() => selectImg(item.img5)} alt={item.name}/>
                     </div>
                 </div>
                 <div className="detailProduct">

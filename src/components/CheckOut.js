@@ -2,7 +2,6 @@ import React, { useEffect , useContext, useState } from "react";
 import { CartContext } from "../context/cartContext";
 import { addDoc, collection, doc, getFirestore, updateDoc, serverTimestamp } from "firebase/firestore";
 
-import * as bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
@@ -11,7 +10,7 @@ export const CheckOut = () => {
 
     const { totalPrice, clear, carrito: products } = useContext(CartContext);
     const navigate = useNavigate()
-    const [updatingProducts, setUpdatingProducts] = useState(false);
+    const [subiendoProductos, setSubiendoProductos] = useState(false);
     const db = getFirestore();
 
     console.log(products);
@@ -37,21 +36,21 @@ export const CheckOut = () => {
         addDoc(collectionDeVentas, venta)
         .then(respuesta => alert('Tu numero de compra es '+  respuesta.id))
           .then(() => {
-            setUpdatingProducts(true);
+            setSubiendoProductos(true);
           })
           .catch((err) => console.error({ err }))
           .finally(() => {});
       };
     
       useEffect(() => {
-        if (updatingProducts) {
+        if (subiendoProductos) {
               
           products.forEach((element) => {
             const itemRef = doc(db, "items", element.id);
-            const dataToUpdate = {
+            const datosAsubir = {
               stock: element.stock - element.cantidad,
             };
-            updateDoc(itemRef, dataToUpdate)
+            updateDoc(itemRef, datosAsubir)
               .then(() => {
                 clear();
                 swal({
@@ -65,8 +64,8 @@ export const CheckOut = () => {
               .catch((err) => console.error(err));
           });
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [updatingProducts]);
+        
+      }, [subiendoProductos]);
 
    
     return (
