@@ -15,6 +15,10 @@ Dentro de cada categoría encontraras varias opciones de modelos.
 
 Open [https://github.com/LucasEMedina/sneaker-store-react.git]
 
+#### Ver Proyecto con Netlify
+
+Open [https://pg-sneaker-store.netlify.app]
+
 #### Video demostrativo
 
 Open ["https://www.loom.com/embed/8af77488e82a4ea2b41260a53274f460"]
