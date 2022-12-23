@@ -17,8 +17,7 @@ Open [https://github.com/LucasEMedina/sneaker-store-react.git]
 
 #### Video demostrativo
 
-[![Alt text](https://www.loom.com/embed/8af77488e82a4ea2b41260a53274f460.jpg)]
-(https://www.loom.com/embed/8af77488e82a4ea2b41260a53274f460)
+Open ["https://www.loom.com/embed/8af77488e82a4ea2b41260a53274f460"]
 
 ### `Librerias utilizadas`
 
