@@ -1,46 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 
-// Own components
+import { useFireItems } from "../hooks/useFireItems";
+
 import ItemList from "./ItemList";
 import { Loading } from "./Loader";
 
-// Mock
-import { items } from "../mocks/items.mock";
-
-
 
 const ItemListContainer = () => {
-  const { category } = useParams();
-  const [products, setProducts] = useState([]);
+    
+  const items = useFireItems();
 
-  useEffect(() => {
-    new Promise((resolve) => {
-
-      setProducts([]);
-
-      return setTimeout(() => {
-        resolve(items);
-      }, 1000);
-    }).then((data) => {
-      if (category) {
-        const categories = data.filter(
-          (product) => product.category === category
-        );
-        setProducts(categories);
-      } else {
-        setProducts(data);
-      }
-    });
-  }, [category]);
-
-  if (products.length === 0) {
+  if (!items) {
     return <Loading />;
   }
 
+  
   return (
     <div className="h-full">
-      <ItemList products={products} />
+      <ItemList products={items} />
     </div>
   );
 };

@@ -456,6 +456,7 @@ li {
   align-items: center;
   justify-content: space-evenly;
   width: 50%;
+  height: 100%;
   padding: 20px;
 }
 
@@ -481,6 +482,11 @@ li {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+}
+
+.totalCompra{
+  margin: 0;
+  padding-top: 10px;
 }
 
 .containLocation{

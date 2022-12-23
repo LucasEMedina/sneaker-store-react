@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const footer = () => {
     return (
@@ -6,9 +7,9 @@ const footer = () => {
             <div className="footerDiv">
                 <h5 className="footCategorias">CATEGORIAS</h5>
                 <ul className="footCategoriasUl">
-                    <li><a href="/">SPORTS</a></li>
-                    <li><a href="/">RUNERS</a></li>
-                    <li><a href="/">STREET</a></li>
+                    <li><Link to="/category/Jordan">Jordan</Link></li>
+                    <li><Link to="/category/Runners">Runners</Link></li>
+                    <li><Link to="/category/Street">Street</Link></li>
                 </ul>
             </div>
         </div>

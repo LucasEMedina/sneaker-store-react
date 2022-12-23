@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useEffect , useContext, useState } from "react";
 import { CartContext } from "../context/cartContext";
+import { addDoc, collection, doc, getFirestore, updateDoc, serverTimestamp } from "firebase/firestore";
 
 import * as bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,24 +9,69 @@ import swal from "sweetalert";
 
 export const CheckOut = () => {
 
-    const {clear} = useContext(CartContext);
+    const { totalPrice, clear, carrito: products } = useContext(CartContext);
     const navigate = useNavigate()
+    const [updatingProducts, setUpdatingProducts] = useState(false);
+    const db = getFirestore();
 
-    const finalizarCompra = () => {
-        clear();
-        swal({
-            title: "Compra finalizada!!",
-            text: "Muchas gracias por tu compra. Que dsfrutes tus zapatillas!!",
-            icon: "success",
-            timer: "2500"
-        });
-        
-        navigate("/");
-    }
+    console.log(products);
 
+    const finalizarCompra = (event) => {
+        event.preventDefault();
+        const name = event.target[0].value;
+        const lastName = event.target[1].value;
+        const email = event.target[2].value;
+        const phone = event.target[3].value;
+        const homeAdress = event.target[4].value;
+        const province = event.target[5].value;
+        const city = event.target[6].value;
+    
+
+        const venta = {
+          buyer: { name, lastName, phone, email, homeAdress, province, city },
+          products,
+          total: totalPrice(),
+          date: serverTimestamp(),
+        };        
+        const collectionDeVentas = collection(db, "ventas");    
+        addDoc(collectionDeVentas, venta)
+        .then(respuesta => alert('Tu numero de compra es '+  respuesta.id))
+          .then(() => {
+            setUpdatingProducts(true);
+          })
+          .catch((err) => console.error({ err }))
+          .finally(() => {});
+      };
+    
+      useEffect(() => {
+        if (updatingProducts) {
+              
+          products.forEach((element) => {
+            const itemRef = doc(db, "items", element.id);
+            const dataToUpdate = {
+              stock: element.stock - element.cantidad,
+            };
+            updateDoc(itemRef, dataToUpdate)
+              .then(() => {
+                clear();
+                swal({
+                    title: "Compra finalizada!!",
+                    text: "Muchas gracias por tu compra. Que dsfrutes tus zapatillas!!",
+                    icon: "success",
+                    timer: "2500"
+                });
+                navigate("/");                
+              })
+              .catch((err) => console.error(err));
+          });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [updatingProducts]);
+
+   
     return (
         <div className="containCheck">
-            <form className="containForm">
+            <form onSubmit={finalizarCompra} className="containForm">
                 <div className="containDatos">
 
                     <div className="datosComprador">
@@ -50,10 +96,7 @@ export const CheckOut = () => {
                             <input type="text" className="form-control" placeholder="+5493515123456" required/>
                         </div>
 
-                        <div className="btnForm">
-                            <button onClick={finalizarCompra} type="submit" className="btn btn-primary">Enviar</button>
-                            <button type="reset" className="btn btn-danger">Reset</button>
-                        </div>
+                        <p className="totalCompra"><strong>Total de la compra ${totalPrice()}</strong></p>
 
                     </div>
                     
@@ -71,9 +114,9 @@ export const CheckOut = () => {
                         </div>
 
 
-                        <div className="formComentario">
-                            <label className="form-label">Agregar Comentarios</label>
-                            <textarea className="form-control" placeholder="Agrega referencias sobre tu domicilio, entrecalles, etc!!"></textarea>
+                        <div className="btnForm">
+                            <button type="submit" className="btn btn-primary">Enviar</button>
+                            <button type="reset" className="btn btn-danger">Reset</button>
                         </div>
                     </div>
                 </div>
