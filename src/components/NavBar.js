@@ -14,21 +14,14 @@ const NavBar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">Abaut Us</Link>
+                                <Link className="nav-link" to="/category/Jordan">Jordan</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">Contact</Link>
+                                <Link className="nav-link" to="/category/Runners">Runners</Link>
                             </li>
-                            <li className="nav-item dropdown">
-                                <Link className="nav-link dropdown-toggle" to="/category/123" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Categorias
-                                </Link>
-                                <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/category/Jordan">Jordan</Link></li>
-                                    <li><Link className="dropdown-item" to="/category/Runners">Runners</Link></li>
-                                    <li><Link className="dropdown-item" to="/category/Street">Street</Link></li>
-                                </ul>
-                            </li>
+                            <li className="nav-item">
+                            <Link className="nav-link" to="/category/Street">Street</Link>
+                            </li>                            
                         </ul>
                     </div>
                 </div>

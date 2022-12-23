@@ -15,6 +15,10 @@ Dentro de cada categoría encontraras varias opciones de modelos.
 
 Open [https://github.com/LucasEMedina/sneaker-store-react.git]
 
+#### Video demostrativo
+
+Open ["https://www.loom.com/embed/8af77488e82a4ea2b41260a53274f460"]
+
 ### `Librerias utilizadas`
 
 - Bootstrap
@@ -24,4 +28,6 @@ Open [https://github.com/LucasEMedina/sneaker-store-react.git]
 ### `Base de datos`
 
 Se utilizo Firebase y Firestore como base de datos.
+
+
 
