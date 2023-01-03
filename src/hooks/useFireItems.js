@@ -50,7 +50,7 @@ import {
       );
   
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [data]);
   
     console.log({ data });
   
